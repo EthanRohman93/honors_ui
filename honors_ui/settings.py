@@ -24,7 +24,7 @@ SECRET_KEY = 'django-insecure-)$ifvdw#0=t&w3bjtsk1w_!oud(d67i!5c$-e9zg_+k(i(0+@0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0", '127.0.0.1']  # Update with your domain(s) for production
+ALLOWED_HOSTS = ['*']  # Update with your domain(s) for production
 
 # Application definition
 
@@ -77,7 +77,7 @@ DATABASES = {
         'NAME': 'ui_study',
         'USER': 'django_user',
         'PASSWORD': '1057',
-        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
+        'HOST': 'db',  # Or an IP Address that your DB is hosted on
         'PORT': '5432',
     }
 }
@@ -114,7 +114,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static",]  # Directory for your static files
 
 # Default primary key field type
@@ -126,6 +126,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Remember to set DEBUG to False and configure the SECRET_KEY for production use
 # Also, update ALLOWED_HOSTS with your domain name(s)
 
-STATIC_ROOT = BASE_DIR / 'collected_static'
+STATIC_ROOT = BASE_DIR / '/vol/static'
 
 APPEND_SLASH = False

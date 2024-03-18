@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: django_user
+      POSTGRES_PASSWORD: 1057
+      POSTGRES_DB: ui_study
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: sh /app/entrypoint.sh
+    volumes:
+      - .:/app
+      - static_volume:/app/collected_static   # Mount the collected_static directory
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgres://django_user:1057@db:5432/ui_study
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - static_volume:/usr/share/nginx/html/static
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - static_volume:/app/collected_static   # Mount the collected_static directory
+    ports:
+      - "80:80"
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
+  static_volume:   # Define the static_volume volume
+
