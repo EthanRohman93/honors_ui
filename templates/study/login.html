@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Load CSS from static files -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/tracker.js' %}"></script>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login/Register</h2>
+    <!-- Display the suggested goofy name -->
+    {% if suggested_name %}
+        <p>Suggested Goofy Name: <strong>{{ suggested_name }}</strong></p>
+    {% endif %}
+
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %} <!-- CSRF Token for form protection -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" minlength="3" maxlength="150" required>
+            <!-- Add min length and max length attributes for username -->
+            <!-- You may want to add other username requirements here -->
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" minlength="8" required>
+            <!-- Add min length attribute for password -->
+            <!-- You may want to add other password requirements here -->
+        </div>
+        
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+</body>
+</html>
+

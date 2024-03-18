@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Experience Feedback Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/tracker.js' %}"></script>
+</head>
+<body>
+    <h1>User Experience Feedback</h1>
+    <p>Please tell us about your experience using our application.</p>
+
+    <!-- The action URL should point to the view that handles this form.
+         The {% url 'form' %} tag will generate the correct URL based on your urls.py configuration.
+         Make sure you have a corresponding path defined there, e.g., path('feedback/', views.form, name='form') -->
+    <form id="feedbackForm" action="{% url 'form' %}" method="post">
+        {% csrf_token %}
+        <label for="easeOfUse">How easy was it to use the application?</label>
+        <select id="easeOfUse" name="easeOfUse">
+            <option value="">Select an option</option>
+            <option value="very_easy">Very easy</option>
+            <option value="easy">Easy</option>
+            <option value="neutral">Neutral</option>
+            <option value="difficult">Difficult</option>
+            <option value="very_difficult">Very difficult</option>
+        </select>
+
+        <label for="interfaceSatisfaction">How satisfied are you with the interface?</label>
+        <input type="range" id="interfaceSatisfaction" name="interfaceSatisfaction" min="0" max="10">
+
+        <fieldset>
+            <legend>What features did you use? (Select all that apply)</legend>
+            <label><input type="checkbox" name="featuresUsed" value="information"> Information</label>
+            <label><input type="checkbox" name="featuresUsed" value="calculator"> Calorie Calculator</label>
+            <label><input type="checkbox" name="featuresUsed" value="form_submission"> Form Submission</label>
+        </fieldset>
+
+        <label>Did you experience any issues?</label>
+        <div>
+            <label><input type="radio" name="experienceIssues" value="yes"> Yes</label>
+            <label><input type="radio" name="experienceIssues" value="no" checked> No</label>
+        </div>
+
+        <label for="issueDescription">If yes, please describe the issues:</label>
+        <textarea id="issueDescription" name="issueDescription"></textarea>
+
+        <label for="performanceRating">How would you rate the application's performance?</label>
+        <select id="performanceRating" name="performanceRating">
+            <option value="">Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+            <option value="terrible">Terrible</option>
+        </select>
+
+        <label for="recommendationLikelihood">How likely are you to recommend our application to others?</label>
+        <input type="range" id="recommendationLikelihood" name="recommendationLikelihood" min="0" max="10">
+
+        <label for="additionalComments">Any additional comments or suggestions?</label>
+        <textarea id="additionalComments" name="additionalComments"></textarea>
+
+        <button type="submit">Submit Feedback</button>
+    </form>
+
+    <nav>
+        <a href="{% url 'home' %}">Back to Home</a>
+    </nav>
+    <script src="{% static 'js/tracker.js' %}"></script>
+</body>
+</html>
+

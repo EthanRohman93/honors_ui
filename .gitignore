@@ -1,0 +1,35 @@
+# Virtual environment
+venv/
+.env
+
+# Compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.pyc
+
+# Database files
+*.sqlite3
+*.db
+
+# IDE-specific files and folders
+.idea/
+.vscode/
+*.swp
+*~
+.DS_Store
+
+# Log and pycache
+*.log
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Django collected static files
+collected_static/
+
+# Ignore migrations
+*/migrations/*
+!*/migrations/__init__.py
+
