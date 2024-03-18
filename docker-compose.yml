@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   db:
-    image: postgres:16
+    image: ethan9rohman3/honors_ui:db
     environment:
       POSTGRES_USER: django_user
       POSTGRES_PASSWORD: 1057
@@ -11,7 +11,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   web:
-    build: .
+    image: ethan9rohman3/honors_ui:web
     command: sh /app/entrypoint.sh
     volumes:
       - .:/app
@@ -24,7 +24,7 @@ services:
       - db
 
   nginx:
-    image: nginx:latest
+    image: ethan9rohman3/honors_ui:nginx
     volumes:
       - static_volume:/usr/share/nginx/html/static
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
