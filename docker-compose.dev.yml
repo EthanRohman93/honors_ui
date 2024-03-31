@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  db:
+    ports:
+      - "5432:5432"  # Expose PostgreSQL to the local machine
+
+  web:
+    image: ethan9rohman3/honors_ui:web
+    restart: always
+    command: sh -c "while true; do sleep 30; done;" # Keep the container running without starting the Django server
+    volumes:
+      - .:/app
+      - static_volume:/app/collected_static
+    environment:
+      DATABASE_URL: postgres://django_user:1057@db:5432/ui_study
+
+  nginx:
+    ports:
+      - "8080:80"  # Make sure Nginx is still accessible if needed
+
+volumes:
+  postgres_data:
+  static_volume:
+

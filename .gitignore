@@ -33,3 +33,11 @@ collected_static/
 */migrations/*
 !*/migrations/__init__.py
 
+
+# Next ignores
+nextjs/node_modules/
+nextjs/.next/
+nextjs/.env.local
+nextjs/.env.development.local
+nextjs/.env.test.local
+nextjs/.env.production.local

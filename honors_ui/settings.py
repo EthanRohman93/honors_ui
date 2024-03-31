@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_browser_reload',
     'study',  # Your custom app
 ]
 
@@ -77,7 +78,7 @@ DATABASES = {
         'NAME': 'ui_study',
         'USER': 'django_user',
         'PASSWORD': '1057',
-        'HOST': 'db',  # Or an IP Address that your DB is hosted on
+        'HOST': 'localhost',  # Or an IP Address that your DB is hosted on
         'PORT': '5432',
     }
 }
@@ -129,3 +130,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_ROOT = BASE_DIR / '/vol/static'
 
 APPEND_SLASH = False
+CSRF_TRUSTED_ORIGINS = ['http://172.20.111.237:3000']

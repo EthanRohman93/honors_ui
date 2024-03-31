@@ -1,0 +1,27 @@
+/* Define the base styles for the body element to change the font and background colors */
+body {
+    /* Old paper-like background color */
+    background-color: #2e004f; /* This is a beige color reminiscent of old paper */
+    
+    /* Very dark purple font color */
+    color: #f5f5dc; /* Adjust the shade as needed */
+    
+    /* You might want to set a default font-family too */
+    font-family: Arial, sans-serif;
+}
+
+/* If you have specific elements you want to style differently, you can add more specific selectors. For example: */
+h1, h2, h3, h4, h5, h6 {
+    color: #f5f5dc; /* A slightly lighter purple for headings, adjust as needed */
+}
+
+/* Ensure links are visible and maybe align with your dark purple theme */
+a {
+    color: #340850; /* Purple shade for links */
+    text-decoration: none; /* Removes underline from links; optional */
+}
+
+a:hover {
+    text-decoration: underline; /* Adds underline on hover for better UX; optional */
+}
+
