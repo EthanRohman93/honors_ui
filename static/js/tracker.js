@@ -94,7 +94,6 @@
 
     setupListeners();
 
-    // Periodically send data to the server (optional)
     setInterval(sendBatch, 15000); // Adjust timing as needed
 })();
 
