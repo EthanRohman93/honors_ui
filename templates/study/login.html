@@ -18,7 +18,7 @@
     {% if suggested_name %}
         <p>Suggested Goofy Name: <strong>{{ suggested_name }}</strong></p>
     {% endif %}
-
+    <p> test this </p>
     <form method="post" action="{% url 'login' %}">
         {% csrf_token %} <!-- CSRF Token for form protection -->
         <div class="form-group">

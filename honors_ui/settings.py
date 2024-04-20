@@ -116,8 +116,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]  # Directory for your static files
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -127,8 +125,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Additional settings for production
 # Remember to set DEBUG to False and configure the SECRET_KEY for production use
 # Also, update ALLOWED_HOSTS with your domain name(s)
-
-STATIC_ROOT = BASE_DIR / '/vol/static'
 
 APPEND_SLASH = False
 CSRF_TRUSTED_ORIGINS = ['http://172.20.111.237:3000']

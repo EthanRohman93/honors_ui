@@ -1,10 +1,9 @@
 from django.urls import path
-from . import views
+from .views import log_interaction, submit_form, api_login_or_register
+
 
 urlpatterns = [
-    path('', views.login_view, name='login'),  # Login view
-    path('home/', views.home_view, name='home'),  # Home view
-    path('form/feedback_thank_you/', views.feedback_thank_you_view, name='feedback_thank_you'),  # Feedback thank you view
-    path('calculator/', views.calculator_view, name='calculator'),  # Calculator view
-    path('michael_jordan/', views.michael_jordan_view, name='michael_jordan'),  # Michael Jordan view
+    path('log-interactions/', log_interaction, name='log_interactions'),
+    path('submit-form/', submit_form, name='submit_form'),
+    path('login/', api_login_or_register, name='api_login_or_register'),
 ]
