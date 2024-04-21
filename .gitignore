@@ -35,6 +35,7 @@ collected_static/
 
 
 # Next ignores
+node_modules/
 nextjs/node_modules/
 nextjs/.next/
 nextjs/.env.local
