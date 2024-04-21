@@ -1,0 +1,7 @@
+{
+  "pname": "answer-bot",
+  "title": "Question Answering Bot",
+  "description": [
+        "Built a deterministic outcome question-answering bot using sentence transformers, enhancing customer support operations."
+    ]
+}

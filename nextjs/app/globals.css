@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light Mode Colors */
+  --foreground-rgb: 35, 40, 45; /* Darker grey halfway to black */
+  --background-start-rgb: 250, 240, 220; /* Lighter tan, closer to white */
+  --background-end-rgb: 250, 240, 220; /* Lighter tan, consistent for gradient end */
+  --border-color-rgb: 172, 216, 230; /* Pastel blue for border */
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark Mode Colors */
+    --foreground-rgb: 250, 240, 220; /* Light tan for text, closer to white */
+    --background-start-rgb: 35, 40, 45; /* Darker grey for background */
+    --background-end-rgb: 35, 40, 45; /* Darker grey for background */
+    --border-color-rgb: 230, 230, 250; /* Lighter border color for dark mode */
+    --shadow-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  padding-top: env(safe-area-inset-top);
+}
+
+@media (max-width: 600px) {
+  .safe-top {
+    flex-direction: column;
+  }
+}
+
+@layer utilities {
+  .rounded-border {
+    border: 4px solid rgb(var(--border-color-rgb));
+    border-radius: 12px;
+    padding: 4px;
+    margin: 4px;
+    box-shadow: 0 4px 6px var(--shadow-color); /* Using variable for shadow color */
+    transition: all 0.3s ease-in-out; /* Smooth transitions for all properties */
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+
